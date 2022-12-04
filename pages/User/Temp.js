@@ -25,33 +25,32 @@ export default function Temp(props){
 export const  getServerSideProps=async(context)=> {
     const o=[]
     
-    // require('dotenv').config
-   
-    // const pk=process.env.SECERT
-    // console.log(pk)
-    // const serviceAccount={
-    //   type:String(process.env.TYPE),
-    //   project_id:String(process.env.PROJECT_ID),
-    //   private_key_id:String(process.env.PRIVATE_KEY_ID) ,
-    //   private_key:pk['private_key'],
-    //   client_email:String(process.env.CLIENT_EMAIL),
-    //   client_id:String(process.env.CLIENT_ID),
-    //   auth_uri:String(process.env.AUTH_URI) ,
-    //   token_uri:String(process.env.TOKEN_URI) ,
-    //   auth_provider_x509_cert_url:String(process.env.AUTH_PROVIDER_X509_CERT_URL) ,
-    //   client_x509_cert_url:String(process.env.CLIENT_CERT_URL), 
-    // }
-    // console.log(serviceAccount)
+    require('dotenv').config
+    const  k=JSON.parse(process.env.PRIVATE_KEY)
+    const k2=k.private_key
+  //  console.log(k2)
+     const serviceAccount1={
+       type:process.env.TYPE,
+       project_id:process.env.PROJECT_ID,
+       private_key_id:process.env.PRIVATE_KEY_ID ,
+       private_key: k2 ,
+       client_email:process.env.CLIENT_EMAIL ,
+       client_id:process.env.CLIENT_ID,
+       auth_uri:process.env.AUTH_URI ,
+       token_uri:process.env.TOKEN_URI ,
+       auth_provider_x509_cert_url:process.env.AUTH_PROVIDER_X509_CERT_URL ,
+       client_x509_cert_url:process.env.CLIENT_CERT_URL, 
+     }
     if(Object.keys(context.query).length!==0){
         
-    const serviceAccount = require("../../secert.json");
+    //const serviceAccount = require("../../secert.json");
   //     console.log(serviceAccount)
       
 
     const admin=require('firebase-admin')
      if (admin.apps.length === 0) {
        admin.initializeApp({
-         credential: admin.credential.cert(serviceAccount),
+         credential: admin.credential.cert(serviceAccount1),
          databaseURL: "https://fir-c155e.firebaseio.com"
        });
     }

@@ -5,7 +5,6 @@ import { getStorage, ref,
   uploadBytes,
   getDownloadURL,} from "firebase/storage";
 
-  import { Datepicker } from '@mobiscroll/react-lite';
 
 import { app } from "../../utils/firebase";
 import { v4 } from 'uuid';
