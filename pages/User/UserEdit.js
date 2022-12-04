@@ -94,7 +94,7 @@ export default function UserEdit(props) {
      
       const db = getFirestore(app);
       const docRef=doc(db,'users',userId);
-      await setDoc(docRef,data).then(()=>{
+      await setDoc(docRef,data,{merge:true}).then(()=>{
         
         
         if(tempEmail!==email){

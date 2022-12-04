@@ -27,12 +27,12 @@ import { exp, stirlingS2 } from 'mathjs';
 
 
   const firebaseConfig={
-    apiKey: String(process.env.APIKEY),
-    authDomain:String(process.env.AUTHDOMAIN),
-    projectId: String(process.env.PROJECTID),
-    storageBucket: String(process.env.STORAGEBUCKET),
-    messagingSenderId: String(process.env.MESSAGINGSENDERID),
-    appId: String(process.env.APPID),
+    apiKey: process.env.APIKEY,
+    authDomain:process.env.AUTHDOMAIN,
+    projectId: process.env.PROJECTID,
+    storageBucket: process.env.STORAGEBUCKET,
+    messagingSenderId: process.env.MESSAGINGSENDERID,
+    appId: process.env.APPID,
     
   }
 
